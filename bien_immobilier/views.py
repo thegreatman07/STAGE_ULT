@@ -1,4 +1,4 @@
 from django.shortcuts import render
 
-def index(request, a, b):
+def index(request):
     return render(request, "index.html", locals())

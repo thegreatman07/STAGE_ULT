@@ -1,35 +1,38 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Gestion des biens immobiliers</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'%}">
 </head>
 <body>
-    <h1>
-        Bienvenue sur notre site 
-    </h1>
     <header>
         <div class="main">
+            <dir class="logo">
+                <img src="/static/IMG_20240507_155133.jpg" >
+            </dir>
             <ul>
-                 <li><a href="#">Home</a></li>                                              
-                 <li><a href="#">Listing</a></li>
-                 <li><a href="#">Tenant</a></li>
-                 <li><a href="#">Contract</a></li>
-                 <li><a href="#">Payment</a></li>
-                 <li><a href="#">Invoice</a></li>
+                 <li><a href="/">Home</a></li>                                              
+                 <li><a href="">About</a></li>
+                 <li><a href="/login">Creer un compte</a></li>
+                 <li><a href="/demander">Demande de Location</a></li>
+                 <li><a href="/disponible">Espaces disponibles</a></li>
+                 <li><a href="/louer">Espaces loues</a></li>
             </ul>
         </div>
-    </header>
-<h1>Liste des biens disponibles </h1>
-<header>
-     <div class="main">
-         <ul>
-             <li><a href="">Maison</a></li>
-             <li><a href="">Appartement</a></li>
-             <li><a href="">Parking</a></li>
-             <li><a href="">Restaurant</a></li>
-         </ul>
-     </div>
-</header>
+        <div class="title">
+            <h1>ESPACES</h1>
+        </div>
+        <div class="button">
+               {% if user.is_anonymous %}
+            <a href="login.html" class="btn">SE CONNECTER</a>
+               {% else %}
+               <li>
+                   {{ user.username | upper }}
+               </li>
+               {% endif %}
+        </div>
+
 </body>
 </html>
